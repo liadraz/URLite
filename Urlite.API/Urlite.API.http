@@ -1,6 +1,0 @@
-@Urlite.API_HostAddress = http://localhost:5115
-
-GET {{Urlite.API_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
