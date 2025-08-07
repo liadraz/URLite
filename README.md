@@ -222,3 +222,8 @@ docker-compose -f docker-compose.prod.yml up -d
 ---
 
 ⭐ If you found this project helpful, please give it a star on GitHub!
+
+
+URLiet - Scalable URL shortener (Personal Project, 2023)
+Stack: .NET, PostgreSQL, Redis, Docker, JWT, xUnit
+Clean Architecture + DDD service with caching, analytics, and comprehensive testing.
