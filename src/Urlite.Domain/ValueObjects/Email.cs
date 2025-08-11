@@ -33,9 +33,12 @@ public class Email : ValueObject
             RegexOptions.Compiled | RegexOptions.IgnoreCase
     );
 
+
     private bool IsEmailValid(string address)
     {
-        if (string.IsNullOrWhiteSpace(address) || address.Length > 254)
+        const int MAX_SMTP_LENGTH = 254;
+
+        if (string.IsNullOrWhiteSpace(address) || address.Length > MAX_SMTP_LENGTH)
         {
             return false;
         }

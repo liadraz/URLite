@@ -3,20 +3,22 @@ namespace Urlite.Domain.Common;
 
 public class BaseEntity
 {
-    public Guid Id { get; set; }
-    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
-    public DateTime? UpdatedAt { get; set; } = DateTime.UtcNow;
+    public Guid Id { get; private set; }
+    public DateTimeOffset? CreatedAt { get; private set; }
+    public DateTimeOffset? UpdatedAt { get; private set; }
 
-    protected BaseEntity() { }
-
-    public BaseEntity(Guid id)
+    protected BaseEntity(Guid? id = null, DateTimeOffset? createdAt = null)
     {
-        Id = id;
+        Id = id ?? Guid.NewGuid();
+        CreatedAt = createdAt ?? DateTimeOffset.UtcNow;
     }
 
-    public void SetUpdatedAt()
+    // Ef constructor
+    protected BaseEntity() { }
+
+    public void SetUpdatedAt(DateTimeOffset now)
     {
-        UpdatedAt = DateTime.UtcNow;
+        UpdatedAt = now;
     }
 
     public override bool Equals(object? obj)
