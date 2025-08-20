@@ -5,6 +5,11 @@ using Urlite.Domain.Exceptions;
 
 namespace Urlite.Domain.ValueObjects;
 
+/// <summary>
+/// Represents a short code for a URL
+/// The short code must be exactly 6 alphanumeric characters.
+/// </summary>
+
 public class ShortCode : ValueObject
 {
     public string Value { get; }

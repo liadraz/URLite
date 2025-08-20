@@ -7,6 +7,7 @@ public class BaseEntity
     public DateTimeOffset? CreatedAt { get; private set; }
     public DateTimeOffset? UpdatedAt { get; private set; }
 
+    // Domain constructor
     protected BaseEntity(Guid? id = null, DateTimeOffset? createdAt = null)
     {
         Id = id ?? Guid.NewGuid();
