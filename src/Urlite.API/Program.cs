@@ -1,16 +1,23 @@
 
+using Urlite.Application.Services;
+
+
 var builder = WebApplication.CreateBuilder(args);
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var app = builder.Build();
+builder.Services.AddControllers();
+builder.Services.AddSingleton<IUrlService, UrlService>();
 
-app.MapGet("/health", () => Results.Ok(new { status = "ok" }));
+var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.MapControllers();
 
 app.Run();
