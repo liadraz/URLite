@@ -4,15 +4,15 @@ namespace Urlite.Domain.Repositories;
 
 public interface IShortenedUrlRepository
 {
-    // Create Link
-    Task AddAsync(ShortenedUrl shortenedUrl); // Save shortened URL
+    // Create short link
+    Task AddAsync(ShortUrl shortenedUrl);
 
     // User Clicks
-    Task<ShortenedUrl?> GetByShortCodeAsync(string shortCode); // redirect
-    Task AddClickAsync(UrlClick urlClick); // Save click record
+    Task<ShortUrl?> GetByShortCodeAsync(string shortCode); // for redirection
+    Task AddClickAsync(UrlClick urlClick); // save click record
 
     // Show Dashboard
-    Task<IReadOnlyList<ShortenedUrl>> GetByUserIdAsync(Guid userId); // Get all URLs for a user
+    Task<IReadOnlyList<ShortUrl>> GetByUserIdAsync(Guid userId); // Get all URLs for a user
     Task<int> GetClickCountAsync(Guid shortenedUrlId); // Get click count for a URL
 
     // Show Analytics
